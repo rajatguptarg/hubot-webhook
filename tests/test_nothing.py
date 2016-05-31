@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 import unittest
+from webhook import welcome
 
 
 class TestNothing(unittest.TestCase):
     def test_0010_test_nothing(self):
         self.assertEqual(200, 200)
+
+    def test_0020_test_welcome(self):
+        self.assertEqual(1, welcome())
 
 
 def suite():

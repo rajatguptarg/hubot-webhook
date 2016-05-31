@@ -6,8 +6,9 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 script:
-  - python setup.py test
+  - coverage run setup.py test
   - flake8 .
+  - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN codeclimate-test-reporter
 after_success:
   - coveralls
 notifications:

@@ -8,6 +8,7 @@ install:
 script:
   - coverage run setup.py test
   - flake8 .
+  - coverage report -m
   - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN codeclimate-test-reporter
 after_success:
   - coveralls

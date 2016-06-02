@@ -8,7 +8,7 @@ BOT_NAME = 'sam'
 slack_client = SlackClient(os.environ.get('SAM_TOKEN'))
 
 
-class BotDetails(object):
+class BotInfo(object):
     """
     Bot Details from Slack
     """
@@ -28,3 +28,6 @@ class BotDetails(object):
         else:
             logging.error("could not find bot user with the name " + BOT_NAME)
             return None
+
+    def __init__(self):
+        super(self.__class__, self).__init__()

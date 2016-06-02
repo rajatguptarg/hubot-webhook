@@ -1,7 +1,7 @@
 test: tests test-flake8
 
 tests: install-dependencies
-	python setup.py test
+	coverage run setup.py test
 
 test-flake8:
 	pip install flake8

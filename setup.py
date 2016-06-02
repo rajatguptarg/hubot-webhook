@@ -16,7 +16,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-class WebHookTest(Command):
+class BotTest(Command):
     """
     Run the tests for Hubot Webhook
     """
@@ -42,13 +42,13 @@ class WebHookTest(Command):
         sys.exit(-1)
 
 
-MODULE = "webhook"
-PREFIX = "hubot"
+MODULE = "bot"
+PREFIX = "my"
 
 
 setup(
     name='%s-%s' % (PREFIX, MODULE),
-    packages=['webhook'],
+    packages=['bot'],
     url='https://www.github.com/rajatguptarg/hubot-webhook',
     license='MIT',
     author='Rajat Gupta',
@@ -69,6 +69,6 @@ setup(
     test_suite='tests.suite',
     tests_require=[],
     cmdclass={
-        'test': WebHookTest,
+        'test': BotTest,
     },
 )

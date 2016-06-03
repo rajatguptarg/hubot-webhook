@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = webhook
+source = bot
 
 [report]
 exclude_lines =

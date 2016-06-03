@@ -14,9 +14,9 @@ class CommandParser(object):
         """
         output_list = slack_rtm_output
         if output_list and len(output_list) > 0:
-            print(output_list)
             for output in output_list:
                 if output.get('user') != self.BOT_ID and output and 'text' in output:
+                    print(output)
                     return output['text'], output['channel']
                 else:
                     return None, None

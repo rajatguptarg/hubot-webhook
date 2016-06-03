@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from bot.commands import CommandFactory
+
 
 class CommandHandler(object):
     """
@@ -12,12 +14,12 @@ class CommandHandler(object):
         are valid commands. If so, then acts on the commands. If not,
         returns back what it needs for clarification.
         """
-        print(command, channel)
-        response = 'hello'
+        response = self.command_factory.perform(command, channel)
         if channel is not None and command is not None:
             return self.slack_client.api_call(
                 "chat.postMessage", channel=channel, text=response, as_user=True)
 
     def __init__(self, slack_client):
         super(self.__class__, self).__init__()
+        self.command_factory = CommandFactory()
         self.slack_client = slack_client

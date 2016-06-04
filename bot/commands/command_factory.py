@@ -10,16 +10,14 @@ class CommandFactory(object):
     Factory which provides the command objects
     """
 
-    def perform(self, command, channel):
+    def get_command(self, command):
         if(re.search('(H)(i|ello)(.*)$', command, re.IGNORECASE)):
-            return self.hello_command.execute(command, channel)
+            return HelloCommand()
 
         if(re.search('vagrant status$', command, re.IGNORECASE)):
-            return self.vagrant_status.execute(command, channel)
+            return VagrantStatus()
 
         return "Sorry I can't understand you."
 
     def __init__(self):
         super(self.__class__, self).__init__()
-        self.hello_command = HelloCommand()
-        self.vagrant_status = VagrantStatus()

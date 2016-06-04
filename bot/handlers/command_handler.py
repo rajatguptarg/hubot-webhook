@@ -14,7 +14,8 @@ class CommandHandler(object):
         are valid commands. If so, then acts on the commands. If not,
         returns back what it needs for clarification.
         """
-        response = self.command_factory.perform(command, channel)
+        command = self.command_factory.get_command(command)
+        response = command.execute(command, channel)
         if channel is not None and command is not None:
             return self.slack_client.api_call(
                 "chat.postMessage", channel=channel, text=response, as_user=True)

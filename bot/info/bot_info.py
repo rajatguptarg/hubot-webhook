@@ -36,7 +36,7 @@ class BotInfo(object):
             users = api_call.get('members')
             for user in users:
                 if 'name' in user and user.get('name') == BOT_NAME:
-                    logging.debug("Bot ID for '" + user['name'] + "' is " + user.get('id'))
+                    logging.debug("Bot ID '" + user['name'] + "' is " + user.get('id'))
                     return user.get('id')
         else:
             logging.error("could not find bot user with the name " + BOT_NAME)

@@ -19,9 +19,9 @@ if __name__ == "__main__":
     if slack_client.rtm_connect():
         print("Slack bot connected and running!")
         while True:
-            command, channel = parser.parse_slack_output(slack_client.rtm_read())
+            command, channel, user_id = parser.parse_slack_output(slack_client.rtm_read())
             if command and channel:
-                handler.handle_command(command, channel)
+                handler.handle_command(command, channel, user_id)
             time.sleep(READ_WEBSOCKET_DELAY)
     else:
         print("Connection failed. Invalid Slack token or bot ID?")

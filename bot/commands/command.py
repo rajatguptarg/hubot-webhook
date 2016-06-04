@@ -33,5 +33,5 @@ class Command(object):
     logger.debug('Logger Initiated.')
 
     @abstractmethod
-    def execute(self, command, channel):
+    def execute(self, command, user_name, user_id):
         pass

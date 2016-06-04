@@ -3,6 +3,7 @@
 import re
 from .hello_command import HelloCommand
 from .vagrant_status import VagrantStatus
+from .ai_bot import AIBot
 
 
 class CommandFactory(object):
@@ -17,7 +18,7 @@ class CommandFactory(object):
         if(re.search('vagrant status$', command, re.IGNORECASE)):
             return VagrantStatus()
 
-        return "Sorry I can't understand you."
+        return AIBot()
 
     def __init__(self):
         super(self.__class__, self).__init__()

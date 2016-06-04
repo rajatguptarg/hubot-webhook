@@ -12,8 +12,8 @@ class VagrantStatus(Command):
         vagrant status
     """
 
-    def execute(self, command, channel):
-        self.logger.info('Running command by ' + channel + ' -> ' + dc.VAGRANT_STATUS)
+    def execute(self, command, user_name, user_id):
+        self.logger.info('Running command by ' + user_name + ' -> ' + dc.VAGRANT_STATUS)
         status = os.system(dc.VAGRANT_STATUS)
         if status == 0:
             return msg.VAGRANT_UP

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from bot.commands import CommandFactory
+from bot.info import BotInfo
 
 
 class CommandHandler(object):
@@ -8,14 +9,16 @@ class CommandHandler(object):
     Handles the commands coming from slack
     """
 
-    def handle_command(self, command, channel):
+    def handle_command(self, message, channel, user_id):
         """
         Receives commands directed at the bot and determines if they
         are valid commands. If so, then acts on the commands. If not,
         returns back what it needs for clarification.
         """
-        response = self.command_factory.perform(command, channel)
-        if channel is not None and command is not None:
+        if channel is not None and message is not None:
+            user_name = BotInfo.get_user_name(user_id)
+            command = self.command_factory.get_command(message)
+            response = command.execute(message, user_name, user_id)
             return self.slack_client.api_call(
                 "chat.postMessage", channel=channel, text=response, as_user=True)
 

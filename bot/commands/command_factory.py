@@ -15,7 +15,7 @@ class CommandFactory(object):
         if(re.search('(H)(i|ello)(.*)$', command, re.IGNORECASE)):
             return HelloCommand()
 
-        if(re.search('vagrant status$', command, re.IGNORECASE)):
+        if(re.search('vagrant status(.*)$', command, re.IGNORECASE)):
             return VagrantStatus()
 
         return AIBot()

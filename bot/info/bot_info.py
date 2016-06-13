@@ -4,7 +4,7 @@ from slackclient import SlackClient
 import logging
 
 
-BOT_NAME = 'sam'
+BOT_NAME = 'samantha'
 slack_client = SlackClient(os.environ.get('SAM_TOKEN'))
 
 

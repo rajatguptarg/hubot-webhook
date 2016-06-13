@@ -13,8 +13,13 @@ class VagrantStatus(Command):
     """
 
     def execute(self, command, user_name, user_id):
-        self.logger.info('Running command by ' + user_name + ' -> ' + dc.VAGRANT_STATUS)
+        self.logger.info(
+            'Running command by ' + user_name + ' -> ' + dc.VAGRANT_STATUS)
+
         status = os.system(dc.VAGRANT_STATUS)
+        self.notifier.notify(
+            message=user_name + ' is testing the Deployment Box status.')
+
         if status == 0:
             return msg.VAGRANT_UP
         return msg.VAGRANT_DOWN

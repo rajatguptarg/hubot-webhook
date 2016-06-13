@@ -113,7 +113,8 @@ class Cleverbot(object):
         return parsed['answer']
 
     def _send(self):
-        """POST the user's question and all required information to the
+        """
+        POST the user's question and all required information to the
         Cleverbot API
 
         Cleverbot tries to prevent unauthorized access to its API by
@@ -121,8 +122,6 @@ class Cleverbot(object):
         currently the md5 checksum of the 10th through 36th characters of the
         encoded data. This may change in the future.
 
-        TODO: Order is not guaranteed when urlencoding dicts. This hasn't been
-        a problem yet, but let's look into ordered dicts or tuples instead.
         """
         # Set data as appropriate
         if self.conversation:

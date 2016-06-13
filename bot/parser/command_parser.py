@@ -18,8 +18,7 @@ class CommandParser(object):
                 if output.get('user') != self.BOT_ID and output and 'text' in output:
                     print(output)
                     return output['text'], output['channel'], output['user']
-                else:
-                    return None, None, None
+                return None, None, None
         return None, None, None
 
     def __init__(self, BOT_ID):

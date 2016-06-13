@@ -3,6 +3,7 @@
 from abc import ABCMeta, abstractmethod
 import logging
 from logging.config import dictConfig
+from bot.notifer import Notifier
 
 
 class Command(object):
@@ -29,8 +30,9 @@ class Command(object):
     )
 
     dictConfig(logging_config)
+
     logger = logging.getLogger()
-    logger.debug('Logger Initiated.')
+    notifier = Notifier()
 
     @abstractmethod
     def execute(self, command, user_name, user_id):

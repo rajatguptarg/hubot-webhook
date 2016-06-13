@@ -7,11 +7,11 @@ class Notifier(object):
     """
     Notify the group about the user actions
     """
-    def notify(self, channel='#general', message='', user=True):
+    def notify(self, channel='#testops', message='', user=True):
         """
         Send action message to slack channel
         """
-        return self.slack_client.api_call(
+        return self.client.api_call(
             "chat.postMessage", channel=channel, text=message, as_user=user)
 
     def __init__(self):

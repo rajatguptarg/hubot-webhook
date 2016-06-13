@@ -13,6 +13,14 @@ class BotInfo(object):
     Bot Details from Slack
     """
     @staticmethod
+    @property
+    def slack_client():
+        """
+        Returns the slack client
+        """
+        return slack_client
+
+    @staticmethod
     def get_user_name(user_id):
         """
         Returns the name of the user

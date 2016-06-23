@@ -5,6 +5,7 @@ from .hello_command import HelloCommand
 from .vagrant_status import VagrantStatus
 from .ai_bot import AIBot
 from .flight_status import FlightStatus
+from .deploy import DeployAWS
 
 
 class CommandFactory(object):
@@ -21,6 +22,9 @@ class CommandFactory(object):
 
         if(re.search('flight status(.*)$', command, re.IGNORECASE)):
             return FlightStatus()
+
+        if(re.search('provsion aws(.*)uat$', command, re.IGNORECASE)):
+            return DeployAWS()
 
         return AIBot()
 

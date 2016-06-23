@@ -4,6 +4,7 @@ import re
 from .hello_command import HelloCommand
 from .vagrant_status import VagrantStatus
 from .ai_bot import AIBot
+from .flight_status import FlightStatus
 
 
 class CommandFactory(object):
@@ -17,6 +18,9 @@ class CommandFactory(object):
 
         if(re.search('vagrant status(.*)$', command, re.IGNORECASE)):
             return VagrantStatus()
+
+        if(re.search('flight status(.*)$', command, re.IGNORECASE)):
+            return FlightStatus()
 
         return AIBot()
 

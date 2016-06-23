@@ -23,7 +23,7 @@ class CommandFactory(object):
         if(re.search('flight status(.*)$', command, re.IGNORECASE)):
             return FlightStatus()
 
-        if(re.search('provsion aws(.*)uat$', command, re.IGNORECASE)):
+        if(re.search('provision aws(.*)uat$', command, re.IGNORECASE)):
             return DeployAWS()
 
         return AIBot()

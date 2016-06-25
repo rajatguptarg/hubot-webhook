@@ -12,13 +12,13 @@ class FlightStatus(Command):
         flight status 9W412
     """
 
-    def execute(self, command, user_name, user_id):
+    def execute(self, command, user):
         gateway = FlightStatusGateway()
         flight_number = re.sub(r'[?.,!@#$%^&*]*', '', command).split()[-1]
 
         self.logger.info(
             'Getting flight info of flight number ' + flight_number)
 
-        gateway.process_fight_update(flight_number, user_id)
+        gateway.process_fight_update(flight_number, user.channel)
 
         return msg.POWERED_BY_CTRIP

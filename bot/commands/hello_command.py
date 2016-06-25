@@ -17,6 +17,6 @@ class HelloCommand(Command):
         'Hi', 'Hello', 'Hi There', 'Bonjor'
     ]
 
-    def execute(self, command, user_name, user_id):
+    def execute(self, command, user):
         msg_number = random.randrange(0, len(self.message))
         return self.message[msg_number]

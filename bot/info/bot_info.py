@@ -2,7 +2,7 @@
 import os
 from slackclient import SlackClient
 import logging
-
+from .user import SlackUser
 
 BOT_NAME = 'samantha'
 slack_client = SlackClient(os.environ.get('SAM_TOKEN'))
@@ -21,14 +21,16 @@ class BotInfo(object):
         return slack_client
 
     @staticmethod
-    def get_user_name(user_id):
+    def get_user(user_id):
         """
         Returns the name of the user
         """
         api_call = slack_client.api_call("users.info", user=user_id)
         if api_call.get('ok'):
             # retrieve all users so we can find our bot
-            return api_call.get('user').get('real_name')
+            user_info = api_call.get('user')
+            return SlackUser(user_info)
+            # return api_call.get('user').get('real_name')
         else:
             logging.error("could not user name with id " + user_id)
             return None

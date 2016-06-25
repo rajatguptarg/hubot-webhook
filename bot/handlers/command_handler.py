@@ -16,9 +16,10 @@ class CommandHandler(object):
         returns back what it needs for clarification.
         """
         if channel is not None and message is not None:
-            user_name = BotInfo.get_user_name(user_id)
+            user = BotInfo.get_user(user_id)
+            user.channel = channel
             command = self.command_factory.get_command(message)
-            response = command.execute(message, user_name, user_id)
+            response = command.execute(message, user)
             return self.slack_client.api_call(
                 "chat.postMessage", channel=channel, text=response, as_user=True)
 

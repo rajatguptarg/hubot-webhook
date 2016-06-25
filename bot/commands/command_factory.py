@@ -6,6 +6,7 @@ from .vagrant_status import VagrantStatus
 from .ai_bot import AIBot
 from .flight_status import FlightStatus
 from .deploy import DeployAWS
+from .service_health import ServiceHealth
 
 
 class CommandFactory(object):
@@ -23,8 +24,11 @@ class CommandFactory(object):
         if(re.search('flight status(.*)$', command, re.IGNORECASE)):
             return FlightStatus()
 
-        if(re.search('provsion aws(.*)uat$', command, re.IGNORECASE)):
+        if(re.search('provision aws(.*)uat(.*)$', command, re.IGNORECASE)):
             return DeployAWS()
+
+        if(re.search('(.*) service(.*)$', command, re.IGNORECASE)):
+            return ServiceHealth()
 
         return AIBot()
 

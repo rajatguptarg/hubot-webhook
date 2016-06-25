@@ -35,5 +35,5 @@ class Command(object):
     notifier = Notifier()
 
     @abstractmethod
-    def execute(self, command, user_name, user_id):
+    def execute(self, command, user):
         pass

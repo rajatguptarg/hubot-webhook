@@ -11,7 +11,7 @@ class AIBot(Command):
         <any unknown command>
     """
 
-    def execute(self, command, user_name, user_id):
+    def execute(self, command, user):
         command = re.sub(r'<(.*)>(: | )', r'', command)
         self.logger.info('Calling clever bot api for ' + command)
         clever_bot = Cleverbot()

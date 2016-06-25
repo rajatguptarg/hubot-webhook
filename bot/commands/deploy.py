@@ -45,5 +45,7 @@ class DeployAWS(Command):
 
         valid_time = deploy_start_time <= current_gmt_time <= deploy_end_time
 
-        return True
+        if user.is_admin and valid_time:
+            return True
 
+        return False

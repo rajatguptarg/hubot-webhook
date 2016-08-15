@@ -8,7 +8,8 @@ from bot.notifer import Notifier
 
 class Command(object):
     """
-    Command Object
+    Command Object which is being inherited by the all the commands
+    which are being executed by the bot.
     """
     __metaclass__ = ABCMeta
 
@@ -31,7 +32,7 @@ class Command(object):
 
     dictConfig(logging_config)
 
-    logger = logging.getLogger()
+    logger = logging.getLogger(__name__)
     notifier = Notifier()
 
     @abstractmethod

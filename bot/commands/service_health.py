@@ -5,7 +5,7 @@ from .command import Command
 from bot.resources import messages as msg
 
 
-NOTIFIER = os.getcwd() + '/bot/notifier/service_notifier.py'
+NOTIFIER = os.getcwd() + '/bot/notifer/service_notifier.py'
 
 
 class ServiceHealth(Command):
@@ -38,7 +38,7 @@ class ServiceHealth(Command):
 
         self.notifier.notify(
             message=user.real_name + ' started the notification service for ' + env +
-            'with pid ' + pid
+            'with pid ' + str(pid)
         )
 
         return msg.SERVICE_NOTIFIER_SUCCESS

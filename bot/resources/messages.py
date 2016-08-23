@@ -8,3 +8,5 @@ POWERED_BY_CTRIP = 'These results are powered by CTrip'
 SUCCESSFUL = 'Done :blush: .'
 FAILED = 'Sorry, I screwed something..'
 UNAUTHORIZED_ACTION = 'Sorry, You are unauthorized to perform this action.'
+
+SERVICE_NOTIFIER_SUCCESS = "Don't worry. I have started looking on all the services."

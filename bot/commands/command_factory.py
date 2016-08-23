@@ -13,6 +13,15 @@ class CommandFactory(object):
     """
     Factory which provides the command objects
     """
+    # TODO: Future Work
+    """
+        Future Work
+        ~~~~~~~~~~~
+
+        Ask the command object for the respective command from the deep
+        mind module.
+
+    """
 
     def get_command(self, command):
         if(re.search('(H)(i|ello)(.*)$', command, re.IGNORECASE)):
